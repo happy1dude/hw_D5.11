@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание связи друга и книги, которую он взял</title>
+</head>
+<body>
+    <ul>
+        {% for frined in object_list %}
+            <li>Друг: {{ frined.friend_name }}, взял(а) книгу: {{ frined.book }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Они обязательно вернут книги обратно!)</h3>
+    
+</body>
+</html>
