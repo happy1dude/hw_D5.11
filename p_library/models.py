@@ -27,3 +27,11 @@ class Publisher(models.Model):
 
     def __str__(self):
         return self.publishing_house
+
+class Friend(models.Model):
+    friend_name = models.TextField()
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.friend_name

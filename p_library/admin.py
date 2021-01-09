@@ -1,5 +1,5 @@
 from django.contrib import admin
-from p_library.models import Book, Author, Publisher
+from p_library.models import Book, Author, Publisher, Friend
 from django.contrib.admin import SimpleListFilter
 from django.utils.translation import ugettext_lazy as _
 # Register your models here.
@@ -22,6 +22,13 @@ class PublisherAdmin(admin.ModelAdmin):
         return obj.books.title
     list_display = ('publishing_house', 'book_title')
     fields = ('publishing_house', 'books')
+
+@admin.register(Friend)
+class FriendAdmin(admin.ModelAdmin):
+    @staticmethod
+    def book_title(obj):
+        return obj.book.title
+    list_display = ('friend_name', 'book_title')
 
 #Фильтр по издательствам
 class ExpiryDateFilter(SimpleListFilter):

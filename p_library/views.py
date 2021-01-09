@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from p_library.models import Book, Author, Publisher
+from p_library.models import Book, Author, Publisher, Friend
 from django.template import loader
 from django.shortcuts import redirect
 from p_library.forms import AuthorForm, BookForm
@@ -92,6 +92,10 @@ class AuthorEdit(CreateView):
 class AuthorList(ListView):
     model = Author
     template_name = 'authors_list.html'
+
+class FriendList(ListView):
+    model = Friend
+    template_name = 'friend_list.html'
 
 def author_create_namny(request):
     AuthorFormSet = formset_factory(AuthorForm, extra=2) # Первым делом, получим класс, который будет создавать наши формы. Обратите внимание на параметр `extra`, в данном случае он равен двум, это значит, что на странице с несколькими формами изначально будет появляться 2 формы создания авторов.
